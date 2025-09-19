@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía rápida: push con Git</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.5;margin:24px;max-width:900px}
+h1{font-size:1.6rem;margin-bottom:0.5rem}
+h2{font-size:1.2rem;margin-top:1.2rem;margin-bottom:0.3rem;border-bottom:1px solid #ddd;padding-bottom:4px}
+p{margin:0.3rem 0}
+.note{color:#444;margin-left:0.75rem}
+code, pre{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+pre{background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px;overflow:auto}
+.cmd{margin:0.35rem 0}
+.sep{height:10px}
+.small{font-size:0.9rem;color:#444}
+</style>
+</head>
+<body>
+<h1>Guía rápida para hacer <code>git push</code></h1>
+<p class="small">Versión HTML generada a partir del archivo PHP original.</p>
+
+<p>0) Comprobar qué remoto está configurado:</p>
+<div class="sep"></div>
+<pre class='cmd'><code>git remote -v</code></pre>
+<pre class='cmd'><code>git remote add origin https://github.com/usuario/repositorio.git</code></pre>
+<div class="sep"></div>
+<p>1) Verifica tu rama actual:</p>
+<pre class='cmd'><code>git branch</code></pre>
+<div class="sep"></div>
+<p>2) Agregar y confirmar los cambios:</p>
+<pre class='cmd'><code>git add .</code></pre>
+<pre class='cmd'><code>git commit -m &quot;Mensaje del commit&quot;</code></pre>
+<div class="sep"></div>
+<p>3) Hacer push inicial:</p>
+<pre class='cmd'><code>git push -u origin master</code></pre>
+<div class="sep"></div>
+<p>4) Si tu rama es &#x27;main&#x27;:</p>
+<pre class='cmd'><code>git push -u origin main</code></pre>
+<div class="sep"></div>
+<h2>SIGNIFICADO</h2>
+<p>-u : Vincula la rama local con la remota para futuros &#x27;push&#x27; y &#x27;pull&#x27;.</p>
+<p>origin : Nombre del remoto (por defecto apunta a tu repo en GitHub).</p>
+<p>master/main : Nombre de la rama que estás subiendo.</p>
+<div class="sep"></div>
+<h2>ERRORES FRECUENTES</h2>
+<p>1) error: src refspec main does not match any</p>
+<p class='note'>• Estás intentando subir &#x27;main&#x27; pero tu rama local se llama distinto.</p>
+<p class='note'>• Solución: usa &#x27;git branch&#x27; para ver el nombre correcto.</p>
+<div class="sep"></div>
+<p>2) rejected (non-fast-forward)</p>
+<p class='note'>• Tu remoto tiene cambios que tu local no tiene.</p>
+<p class='note'>• Solución: primero trae los cambios con:</p>
+<pre class='cmd'><code>git pull --rebase origin &lt;rama&gt;</code></pre>
+<p>luego haz &#x27;git push&#x27;.</p>
+<div class="sep"></div>
+<p>3) fatal: No commits yet</p>
+<p class='note'>• Aún no hiciste un commit.</p>
+<p class='note'>• Solución:</p>
+<pre class='cmd'><code>git add .</code></pre>
+<pre class='cmd'><code>git commit -m &quot;Primer commit&quot;</code></pre>
+<pre class='cmd'><code>git push -u origin master</code></pre>
+
+</body>
+</html>
